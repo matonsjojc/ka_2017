@@ -5,7 +5,7 @@ class Question(models.Model):
     text = models.CharField(max_length=250)
     aktiven = models.BooleanField(default=True)
     #dodaj datum, komentar k tekstu
-    def __stf__(self):
+    def __str__(self):
         return self.text
 
 class Answer(models.Model):
