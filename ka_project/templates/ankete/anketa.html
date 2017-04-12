@@ -8,4 +8,33 @@
 
 <body>
   <p> kle se bo začela nova anketa</p>
+  <!--
+  <ul>
+      {% for question in seznam_akt_vprasanj %}
+          <li> {{ question.text }} </li>
+          {% for answer in answers %}
+              {% if question.text == answer.question.text %}
+                  <p>  {{ answer.text }} </p>
+              {% endif %}
+          {% endfor %}
+      {% endfor %}
+  </ul>
+  -->
+
+  <div>
+      <p>-----kle spobavam paginator tko mal na iziaveš----</p>
+      <p>debugging Page object</p>
+      <p>ans_paginator: {{ ans_paginator }}</p>
+      <p>ans_paginator.has_next(): {{ ans_paginator.has_next }}
+      <p>ans_paginator.start_index(): {{ ans_paginator.start_index }}
+      <p>ans_paginator.end_index(): {{ ans_paginator.end_index }}
+      <p>konc debugginga</p></br>
+
+      {% for a in ans_paginator %}
+          <p>Odgovor: {{ a.text }}</p>
+      {% endfor %}
+      {% if ans_paginator.has_next %}
+          <p> link na naslednji page, ce obstaja <a href="{% url 'nova_anketa' %}?page={{ ans_paginator.next_page_number }} ">link</a></p>
+      {% endif %}
+  </div>
 </body>

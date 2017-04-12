@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Question(models.Model):
-    text = models.CharField(max_length=250)
+    text = models.CharField(max_length=250, unique=True)
     aktiven = models.BooleanField(default=True)
     #dodaj datum, komentar k tekstu
     def __str__(self):

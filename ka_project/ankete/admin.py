@@ -7,7 +7,7 @@ class QuestionAdmin(admin.ModelAdmin):
     fields = ['text', 'aktiven']
 
 class AnswerAdmin(admin.ModelAdmin):
-    fields = ['question', 'text']
+    list_display = ('question', 'text')
 
 class AnketaAdmin(admin.ModelAdmin):
     fields = []
