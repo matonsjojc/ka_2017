@@ -24,17 +24,22 @@
   <div>
       <p>-----kle spobavam paginator tko mal na iziaveš----</p>
       <p>debugging Page object</p>
-      <p>ans_paginator: {{ ans_paginator }}</p>
-      <p>ans_paginator.has_next(): {{ ans_paginator.has_next }}
-      <p>ans_paginator.start_index(): {{ ans_paginator.start_index }}
-      <p>ans_paginator.end_index(): {{ ans_paginator.end_index }}
+      <p>page_obj: {{ page_obj }}</p>
+      <p>page_obj.has_next(): {{ page_obj.has_next }}
+      <p>page_obj.start_index(): {{ page_obj.start_index }}
+      <p>page_obj.end_index(): {{ page_obj.end_index }}
       <p>konc debugginga</p></br>
 
-      {% for a in ans_paginator %}
-          <p>Odgovor: {{ a.text }}</p>
+      {% for v in page_obj %}
+          <p>Vprasanje: {{ v.text }}</p>
+          <ul>
+          {% for a in related_answers %}
+              <li>{{ a }}</li>
+          {% endfor %}
+          </ul>
       {% endfor %}
-      {% if ans_paginator.has_next %}
-          <p> link na naslednji page, ce obstaja <a href="{% url 'nova_anketa' %}?page={{ ans_paginator.next_page_number }} ">link</a></p>
+      {% if page_obj.has_next %}
+          <p> link na naslednji page, ce obstaja <a href="{% url 'nova_anketa' %}?page={{ page_obj.next_page_number }} ">link</a></p>
       {% endif %}
   </div>
 </body>

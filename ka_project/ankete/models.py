@@ -16,7 +16,4 @@ class Answer(models.Model):
         return self.text
 
 class Anketa(models.Model):
-    #seznam aktivnih vprasanj in pripadajocih odgovorov
-    def seznam_akt_vprasanj(self):
-        akt_vprasanja = Question.objects.all().filter(aktiven=True)
-        return akt_vprasanja
+    report = {} #sem bo sel pacient, datum izpolnjevanja, list njegovih odgovorov ... to do: #vsi odgovori morajo biti...
